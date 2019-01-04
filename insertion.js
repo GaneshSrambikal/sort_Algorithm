@@ -15,4 +15,30 @@ function insertionSort(items) {
 }
 
 const list = [3, 2, 8, 4, 3, 1]
-console.log(insertionSort(list)) // [ 17, 20, 26, 31, 44, 54, 55, 77, 93 ]
+console.log(insertionSort(list))
+
+//use splice function 
+function insertion_Sort(arr) {
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] < arr[0]) {
+            //move current element to the first position
+            arr.unshift(arr.splice(i, 1)[0]);
+        }
+        else if (arr[i] > arr[i - 1]) {
+            //leave current element where it is
+            continue;
+        }
+        else {
+            //find where element should go
+            for (var j = 1; j < i; j++) {
+                if (arr[i] > arr[j - 1] && arr[i] < arr[j]) {
+                    //move element
+                    arr.splice(j, 0, arr.splice(i, 1)[0]);
+                }
+            }
+        }
+    }
+    return arr;
+}
+
+console.log(insertion_Sort([3, 0, 2, 5, -1, 4, 1]));
