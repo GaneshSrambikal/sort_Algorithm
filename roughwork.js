@@ -10,6 +10,21 @@
 //merge sort practices
 
 //
-const list = [6, 7, 2, 3, 8, 5]
-const spec = list.splice(1, 3)
-console.log(list)
+// const list = [6, 7, 2, 3, 8, 5]
+// const spec = list.splice(1, 3)
+// console.log(list)
+
+//insertion sort
+function insertionSort(items) {
+    for (var i = 1; i < items.length; i++) {
+        let value = items[i]
+        for (var j = i - 1; j > -1 && items[j] > value; j--) {
+            items[j + 1] = items[j]
+        }
+        items[j + 1] = value
+    }
+    return items
+}
+
+const list = [6, 4, 9, 3, 1, 5, 7, 8, 2]
+console.log(insertionSort(list))
